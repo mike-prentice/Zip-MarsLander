@@ -54,18 +54,17 @@ public class Vehicle {
     }
 
     public int computeDeltaV() {
-        int deltaV = Velocity + Gravity - Burn;
 
-        return deltaV;
+        return Velocity + Gravity - Burn;
         // return velocity + gravity - burn amount
     }
 
     public void adjustForBurn(int burnAmount) {
-        burnAmount = Burn;
+        Burn = burnAmount;
         PrevAltitude = Altitude;
         Velocity = computeDeltaV();
         Altitude -= Velocity;
-        Fuel -= burnAmount;
+        Fuel -= Burn;
         // set burn to burnamount requested
         // save previousAltitude with current Altitude
         // set new velocity to result of computeDeltaV function.
